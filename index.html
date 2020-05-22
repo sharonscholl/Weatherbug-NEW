@@ -419,7 +419,7 @@
       let openWeatherData = {}
       let xhr = new XMLHttpRequest()
       //xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?zip=55040,us&appid=${openWeatherKey}&units=imperial`)
-      xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=imperial`)
+      xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=imperial`)
       xhr.responseType = 'text'
 
       xhr.addEventListener('load', function() {
