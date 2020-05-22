@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dog Walk Weather Bug</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #e7d9aa;
+      background-image: url("images/dogwalk-header-cropped.jpg");
+      height=125% width=100% no-repeat;
+      background-repeat: no-repeat;
+      background-position: center top;
+      margin-right: 20px;
+    }
+
+    body,
+    html {
+      height: 100%;
+      display: grid;
+      font-family: 'Raleway', sans-serif;
+      color: white;
+    }
+
+    main {
+      /* thing to center */
+      margin: auto;
+      padding: 1em;
+      background-color: #303730;
+    }
+
+    button {
+      display: block;
+      font-size: 1em;
+      background-color: #bde1e5;
+      border-radius: 1px;
+      border: 2px solid #33b7c1;
+      color: black;
+      padding: 14px 32 px;
+      text-align: center;
+      font-size: 14px;
+      margin: 4px 2 px;
+      cursor: pointer;
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+      font-weight: bolder;
+    }
+
+
+    img {
+      height: 100px;
+      margin: -90px -10px 0px 0px;
+      border: 0px solid red;
+      float: right;
+      /*margin-left:15px;*/
+    }
+
+
+    #weatherBug {
+      border: 6px solid #33b7c1;
+      border-radius: 1em;
+      background-color: #bde1e5;
+      padding: 1em;
+      color: black;
+      font-family: Raleway', sans-serif;
+
+    }
+
+    p {
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+      font-weight: bolder;
+    }
+
+    /*______________________________*/
+
+
+    p {
+            margin-top: 0px;
+        }
+
+        div.header h1 {
+            margin-top: -60px;
+            margin-bottom: 0px;
+            padding: 0px;
+        }
+
+        div.header {
+            padding: 135px;
+        }
+
+        h2 {
+            margin-top: 50px;
+            margin-bottom: -20px;
+        }
+
+
+    /* Style the header */
+    .header {
+      padding: 80px;
+      text-align: center;
+      /*background: #1abc9c;*/
+      color: #303730;
+    }
+
+    /* Increase the font size of the h1 element */
+    .header h1 {
+      font-size: 40px;
+    }
+
+  .header h2 {
+      padding-bottom: -25px;
+    }
+
+    /*______________________________*/
+
+
+
+    /* Style the top navigation bar */
+    .navbar {
+      overflow: hidden;
+      background-color: #5f0b00;
+    }
+
+    /* Style the navigation bar links */
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    /* Right-aligned link */
+    .navbar a.right {
+      float: right;
+    }
+
+    /* Change color on hover */
+    .navbar a:hover {
+      background-color: #bde1e5;
+      color: black;
+    }
+
+    /*______________________________*/
+
+
+
+    /* Column container */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Create two unequal columns that sits next to each other */
+    /* Sidebar/left column */
+    .side {
+      flex: 30%;
+      background-color: #303730;
+      padding: 20px;
+    }
+
+      .header h2 {
+          padding-bottom: -25px;
+        }
+
+
+    /* Main column */
+    .main {
+      flex: 70%;
+      background-color: white;
+      padding: 20px;
+      color: black;
+    }
+
+    .center-div {
+      margin: 0 auto;
+      width: 100px;
+    }
+
+
+    /*/Fake image, just for this example*/
+    .fakeimgone {
+      background-image: url("images/happy-yellow-lab-eyes-closed-ss.jpg");
+      background-repeat: no-repeat;
+      margin: auto;
+      object-fit: cover;
+    }
+
+
+    /*/Fake image, just for this example*/
+    .fakeimgtwo {
+      background-image: url("images/dog walking with masks-ss.jpg");
+      background-repeat: no-repeat;
+    }
+
+    /*/Fake image, just for this example*/
+    .fakeimgthree {
+      background-image: url("images/Unless-lead-dog-72-900x502.jpg");
+      background-repeat: no-repeat;
+    }
+
+
+    /*/Fake image, just for this example*/
+    .fakeimgfour {
+      background-image: url("images/jack and duck dog 900x546-72.jpg");
+      background-repeat: no-repeat;
+    }
+
+    .fakeimgfive {
+      background-image: url("images/aboutme-283x425.jpg");
+      background-repeat: no-repeat;
+      margin-right: auto;
+      object-fit: cover;
+    }
+
+
+
+    /*/Fake image, just for this example*/
+    /*.fakeimg {
+      background-color: pink;
+      width: 100%;
+      padding: 20px;
+      background-repeat: no-repeat;
+    }*/
+
+
+    /* Footer */
+    .footer {
+      display: grid;
+      padding: 10px;
+      text-align: center;
+      background: #5B9ea6;
+      justify-content: center;
+    }
+
+    IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+    /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 700px) {
+      .row {
+        flex-direction: column;
+      }
+    }
+
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+    @media screen and (max-width: 400px) {
+      .navbar a {
+        float: none;
+        width: 100%;
+      }
+    }
+
+    /*______________________________*/
+  </style>
+</head>
+
+
+
+<body>
+
+  <div class="header">
+    <h1>Barkley's Dog Walker Service</h1>
+    <p>Sun, Rain, Sleet, Snow: We are there for you.</p>
+  </div>
+
+  <div class="navbar">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+    <a href="#" class="right">Blog</a>
+  </div>
+
+  <div class="row">
+    <div class="side">
+
+      <main>
+        <button id="findLocation">Show my location</button>
+        <p id="status">No location yet</p>
+
+        <div id="weatherBug">
+          <h1>Weather Bug</h1>
+          <p>No Weather Data</p>
+          <img src="images/empty.png" alt="current weather image icon" height="100" width="100">
+
+
+        </div>
+
+      </main>
+
+
+      <p>How should we dress for our walk today?</p>
+
+      <iframe src="https://giphy.com/embed/jnJNpkseIWtpNsReQS" width="283px" height="468px" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <p><a href="https://giphy.com/gifs/summer-fall-spring-jnJNpkseIWtpNsReQS">via GIPHY</a></p>
+
+
+      <h2>About Us</h2>
+      <h4>Jessie and her Yellow Lab Holly</h4>
+
+        <div class="fakeimgone" style="width:100%; height:440px;"></div>
+        <p>"I love dogs. Always have. I would be so<br>
+          happy to help care for yours."</p>
+<br>
+
+      <h4>Kendra and her Malamute Oodie</h4>
+        <div class="fakeimgfive" style="width:100%; height:460px;"></div>
+        <p>"I've had Alaskan Malamutes my entire life.<br>
+          It's a great way for me to get some exercise<br>
+          and hang out with my favorite companion<br>
+          animals (well, next to cats that is)."</p>
+          <br>
+          <hr>
+  <br>
+        <h2>Contact Us</h2>
+        <h3>Barkley's Dog Walker Service</h3>
+        <h4>1234 North Main Street<br>
+        Anoka, MN 55303<br>
+        763-421-5678</h4>
+        <h5>Hours: 6 a.m. to 6 p.m. Sa-Su</h5>
+
+
+
+
+        <!--  <p>Lorem ipsum dolor sit ame.</p>
+          <div class="fakeimg" style="height:60px;">Image</div><br>
+          <div class="fakeimg" style="height:60px;">Image</div><br>
+          <div class="fakeimg" style="height:60px;"><img src="images/aboutme.jpg"></div>-->
+
+    </div>
+
+
+
+    <div class="main">
+      <h2>DOG WALKING DURING THE PANDEMIC</h2>
+      <h4>Make sure you stay safe outside as well as inside. April 15, 2020</h5>
+      <div class="fakeimgtwo" style="height:500px;"></div>
+      <h4>Tips from the pros.</h4>
+      <p>Take extra precautions when in crowded outdoor areas. If you are around a lot of people, it is recommended you wear a mask. Stay at least six feet apart at all times. Do not stay in one location for an extended period of time. It's best if you keep moving.
+    </p> -Read more . . .
+      <h2>YOU KNOW WHAT THEY SAY ABOUT SLED DOGS!</h2>
+      <h4>Dogsledding is great exercise too! January 15, 2020</h5>
+      <div class="fakeimgthree" style="height:500px;"></div>
+    <h4>Old Musher saying . . . </h4>
+      <p>Yes, it's true. mushers have been saying this for years: Unless you're the lead dog, the view never changes! Skijouring is another winter favorite of many people who like to cross-country ski and have a harness or two for their dog(s). Strap a belt around your waist, strap on those skis, get a nice long tugline, harness up and away you go!
+    </p>
+       -Read More ...
+      <br>
+      <h2>BABY IT'S COLD OUTSIDE!</h2>
+      <h4>Bundle up. December 15, 2019</h4>
+      <div class="fakeimgfour" style="height:500px;"></div>
+      <h4>Keep your dogs safe and warm.</h4>
+      <p>Take some extra care of your dog in cold weather. The only dogs I know that enjoy cold, snow and ice are double coated northern breeds. They actually prefer it. Some, however, that live indoors and are not acclimated to the cold, can and should not be left outside for extended periods of time.
+    </p>
+    -Read more . . .
+
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <h2>Barkley's Dog Walker Service</h2>
+    <h4>We are ready to help whether you need assistance with daily exercise or the special needs of a home-bound pet.<br>
+      Serving the northern suburbs of Minneapolis and St. Paul, Minnesota.<br>
+      Caring for your pets in the places they love most: dog parks and play dates.</h4>
+    <br>
+    <br>
+    <br>
+    <br>
+        <IMG class="displayed" src="images/social-icons-dogwalk-12.png" alt="Social icons" style="text-align:center;width:216px;height:36px;">
+
+
+  </div>
+
+
+  <script src="openWeatherAPIkey.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    //////Geolocation
+
+    document.querySelector('#findLocation').addEventListener('click', geoLookUp, false)
+
+    function geoLookUp() {
+      const status = document.querySelector('#status')
+
+      function success(position) {
+        const latitude = position.coords.latitude
+        const longitude = position.coords.longitude
+        status.textContent = `lat: ${latitude}, lon: ${longitude}`
+        setWeather(latitude, longitude)
+      }
+
+      function error(err) {
+        status.textContent = `Unable to retrieve your location. Error: ${err.code}. ${err.message}`
+      }
+
+      if (!navigator.geolocation) {
+        status.textContent = "Geolocation is not supported or allowed by your browser"
+      } else {
+        status.textContent = "Locating..."
+        navigator.geolocation.getCurrentPosition(success, error)
+      }
+    }
+
+    //////weatherBug
+    function setWeather(latitude, longitude) {
+      const p = document.querySelector('#weatherBug p')
+
+      let openWeatherData = {}
+      let xhr = new XMLHttpRequest()
+      //xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?zip=55040,us&appid=${openWeatherKey}&units=imperial`)
+      xhr.open('GET', `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=imperial`)
+      xhr.responseType = 'text'
+
+      xhr.addEventListener('load', function() {
+        if (xhr.status === 200) {
+          p.textContent = "loading..."
+          openWeatherData = JSON.parse(xhr.responseText)
+          populateWeatherInfo(openWeatherData, p)
+        } else {
+          p.textContent = "error: " + xhr.status
+        }
+      }, false)
+
+      xhr.send()
+
+    }
+
+    function populateWeatherInfo(openWeatherData, p) {
+      //name, temp, wind, time
+      const location = openWeatherData.name
+      const temp = Math.round(openWeatherData.main.temp)
+      const wind = Math.round(openWeatherData.wind.speed)
+      const time = new Date(openWeatherData.dt * 1000)
+      const hrs = time.getHours()
+      let mins = time.getMinutes()
+      const icon = openWeatherData.weather[0].icon
+      const iconImage = document.querySelector('img')
+
+      //iconImage.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`)
+      //iconImage.setAttribute('src', `http://openweathermap.org/img/wn/10d@2x.png`)
+
+      //http://openweathermap.org/img/wn/10d@2x.png
+      //console.log(icon);
+      iconImage.setAttribute('src', `images/${icon}.png`)
+
+      /*switch (icon) {
+        case "01d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/${icon}.png`)
+          break
+        case "02d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/02d.png`)
+          break
+        case "03d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/03d.png`)
+          break
+        case "04d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/04d.png`)
+          break
+        case "09d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/09d.png`)
+          break
+        case "10d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/10d.png`)
+          break
+        case "11d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/11d.png`)
+          break
+        case "13d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/13d.png`)
+          break
+        case "50d":
+          console.log(icon);
+          iconImage.setAttribute('src', `images/50d.png`)
+          break
+      }*/
+
+      let timeString = ''
+
+      if (mins < 10) {
+        mins = `0${mins}`
+      }
+      if (hrs === 12) {
+        timeString = `12:${mins} PM`
+      } else if (hrs > 12) {
+        timeString = `${hrs - 12}:${mins} PM`
+      } else if (hrs === 0) {
+        timeString = `12:${mins} AM`
+      } else {
+        timeString = `${hrs}:${mins} AM`
+      }
+
+
+
+      const str = `${location} ${temp}&#0176;<br>wind: ${wind}mph<br>${timeString}`
+      p.innerHTML = str
+    }
+  </script>
+
+
+</body>
+
+</html>
